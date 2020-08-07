@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 var cors = require('cors')
 
 let ENV = JSON.parse(fs.readFileSync("./Backend/config/stripe.config.json", 'utf-8'))
+let PayEnv = JSON.parse(fs.readFileSync("./Backend/config/paymentData.config.json", 'utf-8'))
 
 var stripe = require('stripe')(ENV.secretKey);
 
@@ -26,20 +27,14 @@ exports.paymentProcessing = async function(req, res) {
         var customer = await stripe.customers.create({
             email: req.body.stripeEmail,
             source: req.body.stripeToken,
-            name: 'Gourav Hammad',
-            address: {
-                line1: 'TC 9/4 Old MES colony',
-                postal_code: '452331',
-                city: 'Indore',
-                state: 'Madhya Pradesh',
-                country: 'India',
-            }
+            name : PayEnv.name,
+            address : PayEnv.address
         });
 
         await stripe.charges.create({
             amount: 2500,     // Charing Rs 25
-            description: 'Web Development Product',
-            currency: 'INR',
+            description: PayEnv.description,
+            currency: PayEnv.currency,
             customer: customer.id
         });
         res.redirect('/successfulPaymentConfirmation')
