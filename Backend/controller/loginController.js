@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var cors = require('cors')
-var path = require('path')
-var fs = require('fs')
 var getDatabaseOperations = require("../DB/crudJob")
 
 router.use(express.json());
@@ -23,8 +21,8 @@ exports.login = async function(req, res) {
         var isValid = await isValidUser(email, password)
 
         if(isValid) {
-            // res.redirect("/payment")
-            res.send({"status" : "success"})
+            res.redirect("/paymentInit")
+            // res.send({"status" : "success"})
         }else {
             res.send({"status" : "failure"})
         }

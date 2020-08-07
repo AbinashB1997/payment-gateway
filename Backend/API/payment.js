@@ -3,6 +3,8 @@ var controller = require('../controller/paymentController')
 
 var router = express.Router();
 
-router.post('/payment', controller.payment);
+router.get('/paymentInit', controller.paymentInitialize)
+
+router.post('/paymentProcess', controller.paymentProcessing);
 
 module.exports = router;
