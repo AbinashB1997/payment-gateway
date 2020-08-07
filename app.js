@@ -13,9 +13,11 @@ app.set('views', './UI/')
 var LoginApi = require('./Backend/API/login')
 var paymentApi = require('./Backend/API/payment')
 var RegisterApi = require('./Backend/API/Register')
+var getUserDataApi = require('./Backend/API/getUserData')
+var paymentConfirmationApi = require('./Backend/API/paymentConfirmation')
 var controller = require('./Backend/controller/homePage')
 
-app.use('/', RegisterApi, LoginApi, paymentApi);
+app.use('/', RegisterApi, LoginApi, getUserDataApi, paymentApi, paymentConfirmationApi);
 
 app.get('/', controller.homePage)
 

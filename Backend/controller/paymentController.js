@@ -16,7 +16,11 @@ router.use(cors());
 exports.paymentInitialize = async function(req, res) {
     console.log('###Inside paymentInit')
     res.render('paymentHome', {
-       key: ENV.publishableKey
+       key: ENV.publishableKey,
+       amount : req.query.amount,
+       currency : PayEnv.currency,
+       name : PayEnv.paymentName,
+       locale : PayEnv.locale
     })
 }
 
@@ -32,7 +36,7 @@ exports.paymentProcessing = async function(req, res) {
         });
 
         await stripe.charges.create({
-            amount: 2500,     // Charing Rs 25
+            amount: req.body.amount,
             description: PayEnv.description,
             currency: PayEnv.currency,
             customer: customer.id
@@ -40,6 +44,6 @@ exports.paymentProcessing = async function(req, res) {
         res.redirect('/successfulPaymentConfirmation')
     } catch(ex) {
         console.log(ex)
-        res.redirect('/failedPaymentConfirmation')
+        res.redirect('/failurePaymentConfirmation')
     }
 }

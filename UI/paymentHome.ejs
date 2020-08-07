@@ -2,17 +2,18 @@
 <html>
 <title>Stripe Payment Demo</title>
 <body>
-    <h3>Welcome to Payment Gateway</h3>
+    <h3>Welcome to Donation Console</h3>
     <form action="http://localhost:3000/paymentProcess" method="POST">
+        Amount : <input type="text" value="<%= amount %>" name="amount" readonly="readonly"/>
        <script
           src="http://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
           data-key="<%= key %>"
           data-amount="<%= amount %>"
-          data-currency="inr"
-          data-name="Secure Payment"
+          data-currency="<%= currency %>"
+          data-name="<%= name %>"
           data-description="Your Donation Can Save a Life!"
-          data-locale="auto" >
+          data-locale="<%= locale %>" >
         </script>
     </form>
 </body>

@@ -21,7 +21,7 @@ exports.login = async function(req, res) {
         var isValid = await isValidUser(email, password)
 
         if(isValid) {
-            res.redirect("/paymentInit")
+            res.redirect("/getUserData")
             // res.send({"status" : "success"})
         }else {
             res.send({"status" : "failure"})
