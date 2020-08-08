@@ -2,9 +2,9 @@
 <html>
     <title>Stripe Payment Demo</title>
     <body>
-        <h3>Welcome to Donation Console</h3>
+        <h3>Payment Options</h3>
         <form action="<%= endpoint %>" method="POST">
-            Amount : <input type="text" value="<%= amount %>" name="amount" readonly="readonly"/>
+            <input type="text" value="<%= amount %>" name="amount" readonly="readonly" hidden/>
         <script
             src="<%= src %>"
             class="stripe-button"
