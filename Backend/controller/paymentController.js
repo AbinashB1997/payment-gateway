@@ -5,6 +5,7 @@ var cors = require('cors')
 
 let ENV = JSON.parse(fs.readFileSync("./Backend/config/stripe.config.json", 'utf-8'))
 let PayEnv = JSON.parse(fs.readFileSync("./Backend/config/paymentData.config.json", 'utf-8'))
+let routesENV = JSON.parse(fs.readFileSync("./Backend/config/routes.config.json", 'utf-8'))
 
 var stripe = require('stripe')(ENV.secretKey);
 
@@ -16,6 +17,9 @@ router.use(cors());
 exports.paymentInitialize = async function(req, res) {
     console.log('###Inside paymentInit')
     res.render('paymentHome', {
+       src : routesENV.endpoints.checkout,
+       endpoint : routesENV.endpoints.server + routesENV.routes.payProcess,
+       description : PayEnv.paymentCardDescription,
        key: ENV.publishableKey,
        amount : req.query.amount,
        currency : PayEnv.currency,
