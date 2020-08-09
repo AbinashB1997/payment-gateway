@@ -16,11 +16,12 @@ var RegisterApi = require('./Backend/API/Register')
 var getUserDataApi = require('./Backend/API/getUserData')
 var paymentConfirmationApi = require('./Backend/API/paymentConfirmation')
 var controller = require('./Backend/controller/homePage')
+var routes = require('./Backend/config/routes.config.json')
 
 app.use('/', RegisterApi, LoginApi, getUserDataApi, paymentApi, paymentConfirmationApi);
 
 app.get('/', controller.homePage)
 
 app.listen(3000, () => {
-    console.log("app is running in http://localhost:3000");
+    console.log(`app is running in ${routes.endpoints.server}`);
 })

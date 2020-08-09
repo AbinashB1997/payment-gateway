@@ -4,7 +4,7 @@
     <body>
         <h3>Payment Options</h3>
         <form action="<%= endpoint %>" method="POST">
-            <input type="text" value="<%= amount %>" name="amount" readonly="readonly" hidden/>
+            <input type="number" value="<%= amount %>" name="amount" readonly="readonly" hidden/>
         <script
             src="<%= src %>"
             class="stripe-button"

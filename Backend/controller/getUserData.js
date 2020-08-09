@@ -13,7 +13,8 @@ exports.postUserData = async function(req, res) {
     console.log("###Inside controller/postUserData")
     try {
         // Return the body to the payment APIs, so that they will receive the amount
-        res.redirect(`/paymentInit?amount=${req.body.amount}`)
+        // req.session.amount = req.body.amount * 100
+        res.redirect(`/paymentInit?amount=${req.body.amount * 100}`)
     } catch(ex) {
         console.log(ex)
     }

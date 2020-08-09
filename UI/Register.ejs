@@ -12,16 +12,16 @@
 				<form action="<%= regEndpoint %>", method="POST">
 					<h1>Create Account</h1>
 					<input type="text" placeholder="Username" name="username"/>
-					<input type="email" placeholder="Email" name="email"/>
-					<input type="password" placeholder="Password" name="password"/>
+					<input type="email" placeholder="Email" name="email" required/>
+					<input type="password" placeholder="Password" name="password" required/>
 					<button>Sign Up</button>
 				</form>
 			</div>
 			<div class="form-container sign-in-container">
 				<form action="<%= loginEndpoint %>", method="POST">
 					<h1>Sign in</h1>
-					<input type="text" placeholder="Email" name="email"/>
-					<input type="password" placeholder="Password" name="password"/>
+					<input type="text" placeholder="Email" name="email" required/>
+					<input type="password" placeholder="Password" name="password" required/>
 					<a href="#">Forgot your password?</a>
 					<button>Sign In</button>
 				</form>

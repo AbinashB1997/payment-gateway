@@ -16,6 +16,7 @@ router.use(cors());
 
 exports.paymentInitialize = async function(req, res) {
     console.log('###Inside paymentInit')
+    // console.log(`amount is ${req.session.amount}`)
     res.render('paymentHome', {
        src : routesENV.endpoints.checkout,
        endpoint : routesENV.endpoints.server + routesENV.routes.payProcess,
