@@ -1,0 +1,4 @@
+{
+    "publishableKey" : "<STRIPE_PUBLISHABLE_KEY>",
+    "secretKey" : "<STRIPE_SECRET_KEY>"
+}

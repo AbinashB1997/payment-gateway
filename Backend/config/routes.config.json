@@ -1,0 +1,12 @@
+{
+    "endpoints" : {
+        "server" : "http://localhost:3000/",
+        "checkout" : "http://checkout.stripe.com/v2/checkout.js"
+    },
+    "routes" : {
+        "reg" : "register",
+        "login" : "login",
+        "payProcess" : "paymentProcess",
+        "userData" : "postUserData"
+    }
+}

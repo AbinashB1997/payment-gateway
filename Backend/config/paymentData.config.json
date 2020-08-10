@@ -1,0 +1,15 @@
+{
+    "name": "Abinash Biswal",
+    "address": {
+        "line1": "O.T Road, Police Line, Balasore",
+        "postal_code": "756001",
+        "city": "Balasore",
+        "state": "Odisha",
+        "country": "India"
+    },
+    "description": "Web Development Product",
+    "currency": "INR",
+    "paymentName" : "Secure Payment",
+    "locale" : "auto",
+    "paymentCardDescription" : "Your Donation Can Save a Life!"
+}

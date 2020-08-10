@@ -1,0 +1,6 @@
+{
+    "username" : "<USER_NAME>",
+    "password" : "<PASSWORD>",
+    "clusterUrl" : "<DB_CLUSTER_URL>",
+    "allowedValues" : "retryWrites=true&w=majority"
+}
