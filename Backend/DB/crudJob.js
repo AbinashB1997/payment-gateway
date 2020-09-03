@@ -5,9 +5,11 @@ exports.put = async function(database, collection, data) {
         var db = (await dbClient).db(database)
         await db.collection(collection).insertOne(data)
         console.log("inserted")
+        return {"status" : "success"}
         // ;(await dbClient).close();
     } catch(ex) {
         console.log(ex)
+        return {"status" : "failure"}
     }
 }
 
@@ -21,6 +23,7 @@ exports.get = async function(database, collection) {
         return userData
     } catch(ex) {
         console.log(ex)
+        return {"status" : "failure"}
     }
 }
 
@@ -30,10 +33,10 @@ exports.drop = async function(database, collection, username) {
         await db.collection(collection).deleteOne({"username" : username})
         console.log("document removed from collection")
         // ;(await dbClient).close();
-        return true
+        return {"status" : "success"}
     } catch (ex) {
         console.log(ex)
-        return false
+        return {"status" : "failure"}
     }
 }
 
@@ -43,8 +46,12 @@ exports.exists = async function(database, collection, email) {
         var count = await db.collection(collection).countDocuments({"email" : email})
         console.log(`Total ${count} document found`)
         // ;(await dbClient).close()
-        return (count > 0) ? true : false
+        if (count > 0) {
+            return {"status" : "success"}
+        }
+        return {"status" : "failure"}
     } catch (ex) {
         console.log(ex)
+        return {"status" : "failure"}
     }
 }

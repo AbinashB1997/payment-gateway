@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: donation-console
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: donation-console
+  template:
+    metadata:
+      labels:
+        app: donation-console
+    spec:
+      containers:
+      - name: donation-console
+        image: did09/donation_console
+        env:
+          - name: endpoint
+            value: "http://192.168.99.100:30000/"
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+      dnsPolicy: Default

@@ -1,2 +1,5 @@
+Backend/config/
 node_modules/
 package-lock.json
+.dockerignore
+k8s/Ingress

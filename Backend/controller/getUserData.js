@@ -5,7 +5,7 @@ let ENV = JSON.parse(fs.readFileSync("./Backend/config/routes.config.json", 'utf
 exports.getUserData = async function(req, res) {
     console.log('###Inside controller/getUserData')
     res.render('getUserData', {
-        endpoint : ENV.endpoints.server + ENV.routes.userData
+        endpoint : eval(ENV.endpoints.server) + ENV.routes.userData
     })
 }
 

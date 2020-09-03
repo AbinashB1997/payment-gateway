@@ -20,11 +20,15 @@ exports.register = async function(req, res) {
         var username = req.body.username
         var password = req.body.password
         var isValid = await isValidUser(email)
-        if(isValid) {
-            res.send({"status" : "usernameExists"})
+        if(isValid.status === "success") {
+            res.send({"status" : "userExists"})
         }else {
-            await getDatabaseOperations.put('login', 'user_info', {"email" : email, "username" : username, "password" : password})
-            res.send({"status" : "Success"})
+            var status = await getDatabaseOperations.put('login', 'user_info', {"email" : email, "username" : username, "password" : password})
+            console.log(`Status got is : ${status.status}`)
+            if(status.status === "success") {
+                res.send({"status" : "Success"})
+            }
+            res.send({"status" : "failure"})
         }
     } catch (ex) {
         console.log(ex)

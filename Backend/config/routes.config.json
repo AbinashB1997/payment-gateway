@@ -1,6 +1,6 @@
 {
     "endpoints" : {
-        "server" : "http://localhost:3000/",
+        "server" : "process.env.endpoint",
         "checkout" : "http://checkout.stripe.com/v2/checkout.js"
     },
     "routes" : {

@@ -19,7 +19,7 @@ exports.paymentInitialize = async function(req, res) {
     // console.log(`amount is ${req.session.amount}`)
     res.render('paymentHome', {
        src : routesENV.endpoints.checkout,
-       endpoint : routesENV.endpoints.server + routesENV.routes.payProcess,
+       endpoint : eval(routesENV.endpoints.server) + routesENV.routes.payProcess,
        description : PayEnv.paymentCardDescription,
        key: ENV.publishableKey,
        amount : req.query.amount,

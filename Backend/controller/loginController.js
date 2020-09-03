@@ -19,8 +19,7 @@ exports.login = async function(req, res) {
         var email = req.body.email
         var password = req.body.password
         var isValid = await isValidUser(email, password)
-
-        if(isValid) {
+        if(isValid.status === "success") {
             res.redirect("/getUserData")
             // res.send({"status" : "success"})
         }else {

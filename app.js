@@ -23,5 +23,5 @@ app.use('/', RegisterApi, LoginApi, getUserDataApi, paymentApi, paymentConfirmat
 app.get('/', controller.homePage)
 
 app.listen(3000, () => {
-    console.log(`app is running in ${routes.endpoints.server}`);
+    console.log(`app is running in ${eval(routes.endpoints.server)}`);
 })
